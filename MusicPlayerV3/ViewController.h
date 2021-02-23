@@ -6,8 +6,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Video.h"
+#import "PLayerVideoViewController.h"
 
-@interface ViewController : UIViewController
+@class ViewController;
+
+@protocol viewControllerDelegate<NSObject>
+//method delegte
+    -(void) addVideoVCtoPlayVideo: (ViewController *) viewController Video:(Video *) video;
+@end
+
+@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource ,viewControllerDelegate>
 
 
 @end
