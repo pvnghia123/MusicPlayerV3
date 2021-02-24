@@ -9,7 +9,8 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *uiTbvVideo;
-@property (nonatomic,weak) id <viewControllerDelegate> delagate;
+
+@property Video *v;
 
 @property NSArray *array;
 @end
@@ -65,25 +66,22 @@
     return 100.0;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSLog(@"select %@", self.array[indexPath.item]);
+    self.v= self.array[indexPath.row];
     
-    Video *v = self.array[indexPath.row];
-    [self.delagate addVideoVCtoPlayVideo:self Video:v];
     
-   // PLayerVideoViewController *p = [[PLayerVideoViewController alloc] init] initWithNibName:@"PLayerVideoViewController" bundle:nil
-    
-    PLayerVideoViewController *view= [[[PLayerVideoViewController alloc] init] initWithNibName:@"PLayerVideoViewController" bundle:nil];
-    //view.delagate = self;
-    [[self navigationController] pushViewController:view animated:YES];
-    
+    PLayerVideoViewController *controller = [[PLayerVideoViewController alloc] initWithNibName:@"PLayerVideoViewController" bundle:nil];
+    controller.link = self.v;
+    [self.navigationController pushViewController:controller animated:YES];
     
 }
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    PLayerVideoViewController *controller= (PLayerVideoViewController *) segue.destinationViewController;
-//
-//    controller.link=NULL;
-//
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    PLayerVideoViewController *controller= (PLayerVideoViewController *) segue.destinationViewController;
+    controller.link=_v;
+
+}
+
 
 
 

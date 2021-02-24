@@ -1,26 +1,20 @@
 //
-//  PLayerVideoViewController.m
+//  MutiPlayerViewController.m
 //  MusicPlayerV3
 //
 //  Created by Nghia on 23/02/2021.
 //
 
-#import "PLayerVideoViewController.h"
+#import "MutiPlayerViewController.h"
 
-@interface PLayerVideoViewController ()
-@property (weak, nonatomic) IBOutlet UIView *uiView;
-@property Video *videoPlay;
+@interface MutiPlayerViewController ()
 
 @end
 
-@implementation PLayerVideoViewController
+@implementation MutiPlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if(self.link != nil){
-       
-    }
     // Do any additional setup after loading the view.
 }
 

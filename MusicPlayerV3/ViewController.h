@@ -11,12 +11,7 @@
 
 @class ViewController;
 
-@protocol viewControllerDelegate<NSObject>
-//method delegte
-    -(void) addVideoVCtoPlayVideo: (ViewController *) viewController Video:(Video *) video;
-@end
-
-@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource ,viewControllerDelegate>
+@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 
 @end
