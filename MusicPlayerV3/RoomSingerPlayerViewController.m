@@ -23,17 +23,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.player1=self.player;
+  
     // Do any additional setup after loading the view.
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter]
+       addObserver:self selector:@selector(orientationChanged:)
+       name:UIDeviceOrientationDidChangeNotification
+       object:[UIDevice currentDevice]];
+    
     
     NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
     [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
     
-    [self Playvideo:self.link];
+}
+- (void) orientationChanged:(NSNotification *)note
+{
+   UIDevice * device = note.object;
+   switch(device.orientation)
+   {
+
+       case UIDeviceOrientationUnknown:{
+       
+        break;
+       }
+       case UIDeviceOrientationPortrait:{
     
+           break;
+       }
+       case UIDeviceOrientationPortraitUpsideDown:
+         
+           break;
+       case UIDeviceOrientationLandscapeLeft:
+         
+           break;
+       case UIDeviceOrientationLandscapeRight:
+           
+         
+           [self Playvideo:self.link];
+           break;
+       case UIDeviceOrientationFaceUp:
+          
+           break;
+       case UIDeviceOrientationFaceDown:
+          
+           break;
+   };
 }
 
+
+
 - (IBAction)btnPlay:(id)sender {
+    
     if(self.isPlay){
         [self.player pause];
         
@@ -45,6 +86,8 @@
         self.isPlay=true;
         [self.player play];
         [self.uibtnPlay setImage: [UIImage systemImageNamed:@"play.fill"] forState:UIControlStateNormal];
+        
+        
         
         // tthem 1 bộ đếm thời gian
         self.timer= [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:true];
@@ -152,27 +195,42 @@
     
 }
 -(void) Playvideo: (NSString *) link{
-    NSURL *url= [NSURL URLWithString:link];
     
+   
+    
+//
+    NSURL *url= [NSURL URLWithString:link];
+
     AVAsset *aset = [AVAsset assetWithURL:url];
     AVPlayerItem *item= [AVPlayerItem playerItemWithAsset:aset];
-    
+
     if(self.player!=nil){
         [self.player replaceCurrentItemWithPlayerItem:item];
     }else{
         self.player= [AVPlayer playerWithPlayerItem:item];
+
+
     }
+    
+   
+   // if(self.player.status == AVPlayerStatusUnknown){
+    
+   // [self.player replaceCurrentItemWithPlayerItem:self.playitem];
+    //self.player = [AVPlayer playerWithPlayerItem:self.playitem];
+   // self.player = [[AVPlayer alloc] initWithPlayerItem:self.playitem];
+//
+//
+    //}
+    
     
     AVPlayerLayer *layer= [AVPlayerLayer playerLayerWithPlayer:self.player];
     
     
-    layer.videoGravity=AVLayerVideoGravityResizeAspect;
+    layer.videoGravity=AVLayerVideoGravityResize;
     
-//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//    CGFloat height = [UIScreen mainScreen].bounds.size.height;
-//    layer.frame = CGRectMake(0, 0, height, width);
     layer.frame=self.uiView.bounds;
     
+ 
     [self.player seekToTime:self.current];
     
     [self.uiView.layer addSublayer:layer];

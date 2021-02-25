@@ -18,7 +18,7 @@
 @property NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UISlider *uiSeekbar;
 @property NSString *link;
-
+@property AVPlayerItem *avPlayItem;
 @end
 
 @implementation SingerPlayerViewController
@@ -103,6 +103,7 @@
     sendViewController.link = self.link;
     sendViewController.player1 = self.player;
     sendViewController.delegate = self;
+    sendViewController.playitem = self.avPlayItem;
 
     [self.player pause];
     
@@ -150,19 +151,19 @@
     NSURL *url= [NSURL URLWithString:link];
     
     AVAsset *aset = [AVAsset assetWithURL:url];
-    AVPlayerItem *item= [AVPlayerItem playerItemWithAsset:aset];
+    self.avPlayItem= [AVPlayerItem playerItemWithAsset:aset];
     
     if(self.player!=nil){
-        [self.player replaceCurrentItemWithPlayerItem:item];
+        [self.player replaceCurrentItemWithPlayerItem: self.avPlayItem];
     }else{
-        self.player= [AVPlayer playerWithPlayerItem:item];
+        self.player= [AVPlayer playerWithPlayerItem: self.avPlayItem];
     }
   
     
     AVPlayerLayer *layer= [AVPlayerLayer playerLayerWithPlayer:self.player];
     layer.frame= self.uiView.bounds;
     
-    layer.videoGravity=AVLayerVideoGravityResizeAspectFill;
+    layer.videoGravity = AVLayerVideoGravityResize;
     
     [self.uiView.layer addSublayer:layer];
     

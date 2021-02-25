@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property CMTime current;
 @property NSString *link;
 @property id<sendCurrent> delegate;
+@property AVPlayerItem *playitem;
 @end
 
 NS_ASSUME_NONNULL_END

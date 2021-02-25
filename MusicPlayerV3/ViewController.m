@@ -71,12 +71,13 @@
     self.v= self.array[indexPath.row];
     
     
-    PLayerVideoViewController *controller = [[PLayerVideoViewController alloc] initWithNibName:@"PLayerVideoViewController" bundle:nil];
+    PLayerVideoViewController *controller = [[PLayerVideoViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     controller.link = self.v;
     [self.navigationController pushViewController:controller animated:YES];
     
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
     PLayerVideoViewController *controller= (PLayerVideoViewController *) segue.destinationViewController;
     controller.link=_v;
 

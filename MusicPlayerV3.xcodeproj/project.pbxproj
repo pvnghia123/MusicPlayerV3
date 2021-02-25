@@ -18,6 +18,7 @@
 		D5EB8BBC25E5144C00A87127 /* MutiPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EB8BBB25E5144C00A87127 /* MutiPlayerViewController.m */; };
 		D5EB8BEA25E5F48100A87127 /* SingerPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EB8BE925E5F48100A87127 /* SingerPlayerViewController.m */; };
 		D5EB8BEE25E62DF600A87127 /* RoomSingerPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EB8BED25E62DF600A87127 /* RoomSingerPlayerViewController.m */; };
+		D5EB8BF225E6635900A87127 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EB8BF125E6635900A87127 /* testViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		D5EB8BE925E5F48100A87127 /* SingerPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingerPlayerViewController.m; sourceTree = "<group>"; };
 		D5EB8BEC25E62DF600A87127 /* RoomSingerPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomSingerPlayerViewController.h; sourceTree = "<group>"; };
 		D5EB8BED25E62DF600A87127 /* RoomSingerPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomSingerPlayerViewController.m; sourceTree = "<group>"; };
+		D5EB8BF025E6635900A87127 /* testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		D5EB8BF125E6635900A87127 /* testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				D5EB8BE925E5F48100A87127 /* SingerPlayerViewController.m */,
 				D5EB8BEC25E62DF600A87127 /* RoomSingerPlayerViewController.h */,
 				D5EB8BED25E62DF600A87127 /* RoomSingerPlayerViewController.m */,
+				D5EB8BF025E6635900A87127 /* testViewController.h */,
+				D5EB8BF125E6635900A87127 /* testViewController.m */,
 			);
 			path = MusicPlayerV3;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				D5EB8B9F25E4E44F00A87127 /* ViewController.m in Sources */,
 				D5EB8BEA25E5F48100A87127 /* SingerPlayerViewController.m in Sources */,
 				D5EB8BB425E4EA3F00A87127 /* Video.m in Sources */,
+				D5EB8BF225E6635900A87127 /* testViewController.m in Sources */,
 				D5EB8B9925E4E44F00A87127 /* AppDelegate.m in Sources */,
 				D5EB8BAA25E4E45000A87127 /* main.m in Sources */,
 			);
@@ -318,6 +324,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33AVR6U3WU;
 				INFOPLIST_FILE = MusicPlayerV3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,6 +343,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33AVR6U3WU;
 				INFOPLIST_FILE = MusicPlayerV3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
